@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    p {
+      color: green;
+    }
+  </style>
+
+  <body>
+    <p>Hello world</p>
+
+    <basic-user-card username="Vedant Bothikar"></basic-user-card>
+
+    <hr />
+
+    <user-card
+      username="Random guy"
+      avatar="https://randomuser.me/api/portraits/men/1.jpg"
+    >
+      <div slot="email">randomguy.com</div>
+      <div slot="phone">555-555-5555</div>
+    </user-card>
+
+    <user-card
+      username="Random girl"
+      avatar="https://randomuser.me/api/portraits/women/19.jpg"
+    >
+      <div slot="email">randomgirl.com</div>
+      <div slot="phone">333-333-3333</div>
+    </user-card>
+
+    <script src="basicUserCard.js"></script>
+    <script src="userCard.js"></script>
+  </body>
+</html>
