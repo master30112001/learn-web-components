@@ -61,11 +61,17 @@ class UserCard extends HTMLElement {
     // shadow
     this.attachShadow({ mode: "open" });
     this.shadowRoot.append(template.content.cloneNode(true));
+  }
 
-    this.shadowRoot.querySelector("p").innerText =
-      this.getAttribute("username");
+  static get observedAttributes() {
+    return ["username", "avatar"];
+  }
 
-    this.shadowRoot.querySelector("img").src = this.getAttribute("avatar");
+  // attribute change
+  attributeChangedCallback(property, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    this[property] = newValue;
+    this.render();
   }
 
   toggleInfo() {
@@ -86,6 +92,15 @@ class UserCard extends HTMLElement {
   }
 
   connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.querySelector("p").innerText =
+      this.getAttribute("username");
+
+    this.shadowRoot.querySelector("img").src = this.getAttribute("avatar");
+
     this.shadowRoot
       .querySelector("#toggle-info")
       .addEventListener("click", () => this.toggleInfo());

@@ -20,7 +20,8 @@
     <hr />
 
     <user-card
-      username="Random guy"
+      id="firstone"
+      username="Random guys"
       avatar="https://randomuser.me/api/portraits/men/1.jpg"
     >
       <div slot="email">randomguy.com</div>
@@ -37,5 +38,17 @@
 
     <script src="basicUserCard.js"></script>
     <script src="userCard.js"></script>
+
+    <button onclick="something()">do something</button>
+
+    <script>
+      function something() {
+        console.log("something called");
+
+        const firstone = document.querySelector("#firstone");
+
+        firstone.setAttribute("username", "vedant");
+      }
+    </script>
   </body>
 </html>
